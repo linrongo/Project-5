@@ -3,6 +3,7 @@ package application;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -63,13 +64,13 @@ public class MesoStationInfos {
 
 	}
 
-	public String getStationList() {
-		String result = "";
+	public ArrayList<String> getStationList() {
+		ArrayList<String> result = new ArrayList<String>();
 		// sort by key using TreeMap
 				TreeMap<String,Integer> sort = new TreeMap<String,Integer>(stationList); 
 			// add it to the return string
 		        for (Map.Entry<String,Integer> entry : sort.entrySet())  
-		            result = entry.getKey() + " : " + entry.getValue();
+		            result.add(entry.getKey());
 				return result; 	
 			}
 

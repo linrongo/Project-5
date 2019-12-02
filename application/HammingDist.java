@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class HammingDist extends MesoStationInfos{
 
@@ -29,6 +30,18 @@ public class HammingDist extends MesoStationInfos{
 		}
 	}
 	
+	public String getsameDist(int dist) {
+		String result = "";
+		TreeMap<String,Integer> sort = new TreeMap<String,Integer>(hammingDistList); 
+
+		for (Map.Entry<String,Integer> entry : sort.entrySet())  {
+			if (entry.getValue() == dist)
+				result = result + entry.getKey() + "\n";
+		}		
+		return result;
+	}
+	
+	// array of the number of stations with certain distance away
 	public int[] sameDist() {
 	// biggest distance = 4 so size = 5 (0,1,2,3,4)
 		int size = 5;
