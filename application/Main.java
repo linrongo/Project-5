@@ -30,7 +30,21 @@ public class Main extends Application {
 		      gridPane.setHgap(1);                            
 		      gridPane.setVgap(10);          
 
-		   
+		    Font font =  Font.font( "Arial",FontWeight.BOLD, 12); 
+		     
+			enterDistace = new Label("Enter Hamming Dist:");
+			enterDistace.setFont(font);
+			  
+		
+			
+			
+			
+			gridPane.add(enterDistace, 0, 0);
+		  
+			
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Hamming Distance");
+			primaryStage.show();		
 	}
 	
 	public static void main(String[] args) {
