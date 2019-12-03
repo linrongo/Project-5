@@ -42,3 +42,4 @@
 		21. Label bonus - "List of all stations and their letter average" label
 		22. Button extra - When pressed, change the scene to the Bonus Scene
 		23. Button back -  when pressed, goes bach to the first Scene
+		24. start(Stage primaryStage) - define all actions and add elements to Pane and to Scene
