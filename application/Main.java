@@ -250,6 +250,7 @@ public class Main extends Application {
 			back.setFont(font);
 		// add elements to bonus scene
 			pane.getChildren().add(iv);
+			pane.getChildren().add(back);
 
 			Scene Bonus = new Scene(pane,853,480);
 		// go to bonus scene when extra button is click
