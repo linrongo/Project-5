@@ -207,18 +207,18 @@ public class Main extends Application {
 		    gridPane.add(HDresult2, 1, 9);
 		    gridPane.add(HDresult3, 1, 10);
 		    gridPane.add(HDresult4, 1, 11);
-		    		    
+		  //add  		    
 		    gridPane.add(addStation, 0, 12);
 		    gridPane.add(stationInput, 1, 12);
-
+		  // add bonus section to the scene
 		    gridPane.add(bonus, 2, 0, 2, 1);
 		    gridPane.add(stationLetterAvg, 2, 1, 1, 11);
 			gridPane.add(extra, 2, 12, 2, 1);
-			
+		
+		//set scene, title and get primary stage to show
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Hamming Distance");
-			primaryStage.show();
-			
+			primaryStage.show();			
 		// Bonus stage with picture
 			Stage window = primaryStage;
 			StackPane pane = new StackPane();
@@ -228,15 +228,16 @@ public class Main extends Application {
 		// Back button	
 			back = new Button("Click to go back");
 			back.setFont(font);
+		// add elements to bonus scene
 			pane.getChildren().add(iv);
 			pane.getChildren().add(back);
 
 			Scene Bonus = new Scene(pane,853,480);
-		// go to second window when extra button is click
+		// go to bonus scene when extra button is click
 			extra.setOnAction(e -> window.setScene(Bonus));
-		// go back to the first window when back button is clicked
+		// go back to the main scene when back button is clicked
 			back.setOnAction(e -> window.setScene(scene));
-
+		// set title of bonus scene and show it
 			window.setTitle("Me right now");
 			window.show();
 	}
