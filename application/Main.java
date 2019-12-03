@@ -252,6 +252,7 @@ public class Main extends Application {
 			pane.getChildren().add(iv);
 			pane.getChildren().add(back);
 
+			Scene Bonus = new Scene(pane,853,480);
 		// go to bonus scene when extra button is click
 			extra.setOnAction(e -> window.setScene(Bonus));
 		// go back to the main scene when back button is clicked
