@@ -110,6 +110,7 @@ public class Main extends Application {
 			showStation = new Button("Show Station");
 			showStation.setFont(font);
 		  // when clicked, show all stations with the chosen amount of hamming distance
+			showStation.setOnAction(new EventHandler<ActionEvent>() {		
 					@Override
 					public void handle(ActionEvent click) {
 					  // set HashMap of the stations and their hamming distace from the chosen stid of the ComboBox
