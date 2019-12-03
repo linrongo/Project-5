@@ -159,15 +159,16 @@ public class Main extends Application {
 					HDresult4.setText(String.valueOf((dist[4])));
 		}	
 		});
-		//Bonus
+		//Bonus label
 			bonus = new Label("List of all stations and their letter average");
 			bonus.setFont(font);
+		// bonus text Area of all stations and its letter average
 			stationLetterAvg = new TextArea(stations.toString());
 			stationLetterAvg.setPrefColumnCount(20);
-			
+		// text field to write station name to add to the list
 			stationInput = new TextField("ZERO");
 			stationInput.setEditable(true);
-			
+		// add station Button, add from the text field
 			addStation = new Button("Add Station");
 			addStation.setFont(font);
 			addStation.setOnAction(new EventHandler<ActionEvent>() {
@@ -180,23 +181,29 @@ public class Main extends Application {
 					stationLetterAvg.setText(stations.toString());
 		}	
 		});
+			
+		// bonus button
 			extra = new Button("If we finish, can I Click for Meme? ( ͡° ͜ʖ ͡°)");
 			extra.setFont(font);			
 			
-		
+		// set batting and gaps of the grid pane
 			gridPane.setPadding(new Insets(10, 10, 10, 10));
 		      gridPane.setHgap(20);                            
 		      gridPane.setVgap(20);          
-
+		  // add enter distance label and textfield that reads the value of the slider
 			gridPane.add(enterDistace, 0, 0);
-		    gridPane.add(distanceInput, 1, 0);	
+		    gridPane.add(distanceInput, 1, 0);
+		  // add slider of distance
 		    gridPane.add(distanceSlider,0,1,2,2);
+		  // add show station button and the text area of the result
 		    gridPane.add(showStation, 0, 3);
 		    gridPane.add(stationList, 0, 4,2,1);
+		  // add label and drop down list of all stations
 		    gridPane.add(compare, 0, 5);
 		    gridPane.add(stid, 1, 5);
+		  // add button to show the calculation
 		    gridPane.add(calculateHD, 0, 6);
-	  
+		  // add label and result of number of station with certain Hamming distance  
 		    gridPane.add(dist0, 0, 7);
 		    gridPane.add(dist1, 0, 8);
 		    gridPane.add(dist2, 0, 9);
@@ -207,10 +214,10 @@ public class Main extends Application {
 		    gridPane.add(HDresult2, 1, 9);
 		    gridPane.add(HDresult3, 1, 10);
 		    gridPane.add(HDresult4, 1, 11);
-		  //add  		    
+		  // add Add Station option		    
 		    gridPane.add(addStation, 0, 12);
 		    gridPane.add(stationInput, 1, 12);
-		  // add bonus section to the scene
+		  // add bonus section
 		    gridPane.add(bonus, 2, 0, 2, 1);
 		    gridPane.add(stationLetterAvg, 2, 1, 1, 11);
 			gridPane.add(extra, 2, 12, 2, 1);
