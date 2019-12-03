@@ -38,7 +38,10 @@ public class MesoStationInfos {
 	    return stationList;
 	}
 
-
+	public void addStation(String stid) {
+		String input = stid.toUpperCase();
+		stationList.put(input, calAvg(input));
+	}
 
 	private Integer calAvg(String stid) {
 		int asciiTot = 0; 
@@ -60,8 +63,6 @@ public class MesoStationInfos {
 			else avg = (int) Math.ceil(asciiAve);
 
 			return avg;
-	
-
 	}
 
 	public ArrayList<String> getStationList() {
@@ -74,8 +75,15 @@ public class MesoStationInfos {
 				return result; 	
 			}
 
-	public void addStation(String stid) {
-		this.stationList.put(stid, calAvg(stid));
+	public String toString() {
+		String result = "";
+		// sort by key using TreeMap
+		TreeMap<String,Integer> sort = new TreeMap<String,Integer>(stationList); 
+	// add it to the return string
+        for (Map.Entry<String,Integer> entry : sort.entrySet())  
+            result += entry.getKey() + "   :   " + entry.getValue() + "\n"; 
+
+		return result;
 	}
 
 }
