@@ -2,7 +2,6 @@ package application;
 	
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -111,15 +110,12 @@ public class Main extends Application {
 			showStation = new Button("Show Station");
 			showStation.setFont(font);
 		  // when clicked, show all stations with the chosen amount of hamming distance
-			showStation.setOnAction(new EventHandler<ActionEvent>() {		
 					@Override
 					public void handle(ActionEvent click) {
 					  // set HashMap of the stations and their hamming distace from the chosen stid of the ComboBox
 						HDstation.setHammingList(stid.getValue());
 					  // display result on the text area
-						stationList.setText(HDstation.getsameDist((int)distanceSlider.getValue()));
-						  // if chosen distance is 1, show chosen stid
-							if(distanceSlider.getValue() == 1.0) stationList.setText(stid.getValue());					
+						stationList.setText(HDstation.getsameDist((int)distanceSlider.getValue()));		
 					}	
 			});
 			
