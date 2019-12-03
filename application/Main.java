@@ -96,31 +96,38 @@ public class Main extends Application {
 			MesoStationInfos stations = new MesoStationInfos();
 			
 			HammingDist HDstation = new HammingDist();
-			
+		// ArrayList of all original stations
 			ArrayList<String> list = stations.getStationList();
-			stid = new ComboBox<String>(FXCollections 
-                    .observableArrayList(list));
+		// ComboBox of all stations as option
+			stid = new ComboBox<String>(FXCollections.observableArrayList(list));
+		  // set default option to NRMN
 			stid.setValue("NRMN");
-
+		// text area of stations with chosen distance
+			
 			stationList = new TextArea();
 			stationList.setPrefColumnCount(8);
 
+		// show station button
 			showStation = new Button("Show Station");
 			showStation.setFont(font);
-			showStation.setOnAction(new EventHandler<ActionEvent>() {
-			
+		  // when clicked, show all stations with the chosen amount of hamming distance
+			showStation.setOnAction(new EventHandler<ActionEvent>() {		
 					@Override
 					public void handle(ActionEvent click) {
+					  // set HashMap of the stations and their hamming distace from the chosen stid of the ComboBox
 						HDstation.setHammingList(stid.getValue());
-						stationList.setText(HDstation.getsameDist((int)distanceSlider.getValue()));			
-						
-						if(distanceSlider.getValue() == 1.0) stationList.setText(stid.getValue());					
-			}	
+					  // display result on the text area
+						stationList.setText(HDstation.getsameDist((int)distanceSlider.getValue()));
+						  // if chosen distance is 1, show chosen stid
+							if(distanceSlider.getValue() == 1.0) stationList.setText(stid.getValue());					
+					}	
 			});
 			
+		// label for the ComboBox of all stations
 			compare = new Label("Compare with:");
 			compare.setFont(font);
 			
+		// labels for text field of HDresults
 			dist0 = new Label("Distance 0");
 			dist0.setFont(font);
 			dist1 = new Label("Distance 1");
@@ -131,7 +138,7 @@ public class Main extends Application {
 			dist3.setFont(font);
 			dist4 = new Label("Distance 4");
 			dist4.setFont(font);
-			
+		// result text fields of calculate HD button
 			HDresult0 = new TextField();
 			HDresult0.setEditable(false);
 			HDresult1 = new TextField();
@@ -142,54 +149,63 @@ public class Main extends Application {
 			HDresult3.setEditable(false);
 			HDresult4 = new TextField();
 			HDresult4.setEditable(false);
-			
+		
+		// calculate hd Button	
 			calculateHD = new Button("Calculate HD");
 			calculateHD.setFont(font);
-			calculateHD.setOnAction(new EventHandler<ActionEvent>() {
-				
+		  // when clicked get result and display on HDresults text fields
+			calculateHD.setOnAction(new EventHandler<ActionEvent>() {			
 				@Override
 				public void handle(ActionEvent click) {
+				  // set HashMap of stations and their hamming distance from the chosen stid
 					HDstation.setHammingList(stid.getValue());
-					int[] dist = HDstation.sameDist();
-
+				  // get array of results
+				  	int[] dist = HDstation.sameDist();
+				  // write the result out into text fields
 					HDresult0.setText(String.valueOf((dist[0])));
 					HDresult1.setText(String.valueOf((dist[1])));
 					HDresult2.setText(String.valueOf((dist[2])));
 					HDresult3.setText(String.valueOf((dist[3])));
 					HDresult4.setText(String.valueOf((dist[4])));
-		}	
+				}	
 		});
+			
 		//Bonus label
 			bonus = new Label("List of all stations and their letter average");
 			bonus.setFont(font);
 		// bonus text Area of all stations and its letter average
 			stationLetterAvg = new TextArea(stations.toString());
 			stationLetterAvg.setPrefColumnCount(20);
+			
 		// text field to write station name to add to the list
 			stationInput = new TextField("ZERO");
 			stationInput.setEditable(true);
-		// add station Button, add from the text field
+			
+		// add station Button
 			addStation = new Button("Add Station");
 			addStation.setFont(font);
-			addStation.setOnAction(new EventHandler<ActionEvent>() {
-				
+			// when clicked add station ID to the list od stations
+			addStation.setOnAction(new EventHandler<ActionEvent>() {			
 				@Override
 				public void handle(ActionEvent click) {
+				  // add station to HashMap (prevent repeat)
 					stations.addStation(stationInput.getText());
-					stid.setItems(FXCollections 
-                    .observableArrayList(stations.getStationList()));
+			   	  // reset comboBox of stations
+					stid.setItems(FXCollections .observableArrayList(stations.getStationList()));
+				  // write output in the bonus text area
 					stationLetterAvg.setText(stations.toString());
-		}	
-		});
+				}	
+			});
 			
 		// bonus button
 			extra = new Button("If we finish, can I Click for Meme? ( ͡° ͜ʖ ͡°)");
 			extra.setFont(font);			
 			
-		// set batting and gaps of the grid pane
+		// set padding and gaps of the grid pane
 			gridPane.setPadding(new Insets(10, 10, 10, 10));
 		      gridPane.setHgap(20);                            
-		      gridPane.setVgap(20);          
+		      gridPane.setVgap(20);      
+		      
 		  // add enter distance label and textfield that reads the value of the slider
 			gridPane.add(enterDistace, 0, 0);
 		    gridPane.add(distanceInput, 1, 0);
