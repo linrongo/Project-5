@@ -18,4 +18,27 @@
 		6. sameDist() - return an int[] of the number of stations with the same distance
 		
 	III. Main
-		1. 
+		0. Label enterDistace - "Enter Distance:" label
+		1. TextField distanceInput - read result from the slider
+		2. Button showStation - when pressed show all stations with the chosen distance from the slider
+		3. Slider distanceSlider -  choose the hamming distance from 1 to 4
+		4. TextArea stationList - display ShowStation button result
+		5. Label compare - "Compare With" label
+		6. ComboBox<String> stid - ComboBox of all Stid as options
+		7. Button calculateHD - When pressed, shows number of stations with the same distance
+		8. Label dist0 - "Distance 0" label
+		9. Label dist1 - "Distance 1" label
+		10. Label dist2 - "Distance 2" label
+		11. Label dist3 - "Distance 3" label
+		12. Label dist4 - "Distance 4" label
+		13. TextField HDresult0 - display how many station with hamming distance of 0
+		14. TextField HDresult1 - display how many station with hamming distance of 1
+		15. TextField HDresult2 - display how many station with hamming distance of 2
+		16. TextField HDresult3 - display how many station with hamming distance of 3
+		17. TextField HDresult4 - display how many station with hamming distance of 4
+		18. Button addStation - when pressed add the station ID from the stationInput TextField
+		19. TextField stationInput - editable TextField to write station ID what need to be added
+		20. TextArea stationLetterAvg - display Stations IDand their letter averages
+		21. Label bonus - "List of all stations and their letter average" label
+		22. Button extra - When pressed, change the scene to the Bonus Scene
+		23. Button back -  when pressed, goes bach to the first Scene
