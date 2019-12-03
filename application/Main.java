@@ -54,48 +54,48 @@ public class Main extends Application {
 	private Button back;
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		
 			GridPane gridPane = new GridPane(); 
 			Scene scene = new Scene(gridPane);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
-			
+		// font for labels
 		    Font font =  Font.font( "Arial",FontWeight.BOLD, 12); 
-		     
+		// enter distace label
 			enterDistace = new Label("Enter Hamming Dist:");
 			enterDistace.setFont(font);
 			  
-			
+		// font for text field
 			final Font fontN =  Font.font( "Arial", 12);
-
+		// slider of hamming distace to choose from
 			distanceSlider = new Slider(1,4,2);
 			distanceSlider.setMajorTickUnit(1);
 			distanceSlider.setMinorTickCount(0);
 			distanceSlider.setShowTickLabels(true);
 			distanceSlider.setSnapToTicks(true);
 			distanceSlider.setShowTickMarks(true);
+		// show result on the text field
 			distanceSlider.valueProperty().addListener(
 		           new ChangeListener<Number>() { 
-
 					 public void changed(ObservableValue <? extends Number >  
-                     observable, Number oldValue, Number newValue)
-           { 
-
+                     observable, Number oldValue, Number newValue){ 
+					  // display new value on the text field
 						 distanceInput.setText(String.valueOf(newValue.intValue()));
 							distanceInput.setFont(fontN);
-           } 
-		             });;
-			
+					 } 
+		    });
+		    
+		// text field of distance input              
 			distanceInput = new TextField(); 
 			distanceInput.setPrefColumnCount(8);
 			distanceInput.setText("2");
 			distanceInput.setFont(fontN);
 			distanceInput.setEditable(false);
 			distanceInput.setFocusTraversable(false);
-		
-			MesoStationInfos stations = new MesoStationInfos();
 			
-			HammingDist HDstation = new HammingDist();
+	// MesoStaion and HammingDist
+		MesoStationInfos stations = new MesoStationInfos();	
+		HammingDist HDstation = new HammingDist();
+		
 		// ArrayList of all original stations
 			ArrayList<String> list = stations.getStationList();
 		// ComboBox of all stations as option
@@ -264,7 +264,6 @@ public class Main extends Application {
 			window.setTitle("Me right now");
 			window.show();
 	}
-	
 	public static void main(String[] args) {
 		launch(args);
 	}
