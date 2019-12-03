@@ -8,6 +8,7 @@ import java.util.TreeMap;
 public class HammingDist extends MesoStationInfos{
 
 	private HashMap<String,Integer> hammingDistList;
+	
 	public HammingDist() throws IOException {
 		super();
 		hammingDistList = new HashMap<String,Integer>();
@@ -25,15 +26,18 @@ public class HammingDist extends MesoStationInfos{
 	}
 	
 	public void setHammingList(String input) {
+	  // go through the stationList and calculate hamming distance of all to the input stid then add to hammingDistList
 		for (Map.Entry<String,Integer> entry : stationList.entrySet())  {
 			hammingDistList.put(entry.getKey(),getHammingDist(input,entry.getKey()));
 		}
 	}
 	
+	// find all stations with same distance
 	public String getsameDist(int dist) {
 		String result = "";
+		//sort
 		TreeMap<String,Integer> sort = new TreeMap<String,Integer>(hammingDistList); 
-
+		// go through sort treemap and add same distance stid to the String of result
 		for (Map.Entry<String,Integer> entry : sort.entrySet())  {
 			if (entry.getValue() == dist)
 				result = result + entry.getKey() + "\n";
