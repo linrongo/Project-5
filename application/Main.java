@@ -51,7 +51,7 @@ public class Main extends Application {
 	private TextArea stationLetterAvg;
 	private Label bonus;
 	private Button extra;
-	
+	private Button back;
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		
@@ -219,15 +219,24 @@ public class Main extends Application {
 			primaryStage.setTitle("Hamming Distance");
 			primaryStage.show();
 			
+		// Bonus stage with picture
 			Stage window = primaryStage;
 			StackPane pane = new StackPane();
+		// Image
 			Image meme = new Image("File:Joker.jpg");
 			ImageView iv = new ImageView(meme);
+		// Back button	
+			back = new Button("Click to go back");
+			back.setFont(font);
 			pane.getChildren().add(iv);
-			
+			pane.getChildren().add(back);
+
 			Scene Bonus = new Scene(pane,853,480);
-		
+		// go to second window when extra button is click
 			extra.setOnAction(e -> window.setScene(Bonus));
+		// go back to the first window when back button is clicked
+			back.setOnAction(e -> window.setScene(scene));
+
 			window.setTitle("Me right now");
 			window.show();
 	}
