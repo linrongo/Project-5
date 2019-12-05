@@ -26,8 +26,8 @@ import javafx.scene.text.FontWeight;
 
 
 public class Main extends Application {
-	private Label enterDistace;     
-	  
+	
+	private Label enterDistace;       
 	private TextField distanceInput;  
 	private Button showStation;
 	private Slider distanceSlider;

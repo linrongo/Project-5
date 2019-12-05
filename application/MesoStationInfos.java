@@ -22,16 +22,12 @@ public class MesoStationInfos {
        	String line;       	
       
 		line = profile.readLine();
-	    while ( line != null) {
-	    	
+	    while ( line != null) {    	
 	      // Trim
-	    	line = line.trim();
-	    	
-	       	
+	    	line = line.trim();   	
 	      // Add it to the HashMap of stationList
 	       		stationList.put(line, calAvg(line));
-	       		
-	       		
+       		
 	      line = profile.readLine();
        }    
 	    profile.close();
